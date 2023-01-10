@@ -30,6 +30,7 @@ const Eisenhover = () => {
     if (!item.importance && !item.completed && difference >= 120) {
       deleteItems.push(item)
     }
+    return item
   })
 
   return (

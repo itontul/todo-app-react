@@ -11,7 +11,7 @@ const TodoList = () => {
 
   let content;
   if (filter === null) {
-    content = list;
+    content = list.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
   }
   if (filter === "active") {
     content = list.filter((item) => item.completed === false);
@@ -28,6 +28,7 @@ const TodoList = () => {
           <button onClick={() => setFilter("active")}>Active</button>
           <button onClick={() => setFilter("completed")}>Completed</button>
         </div>
+        <h2>{filter ? filter : "All"} Tasks</h2>
         <div className={styles["todo-list"]}>
           {content.map((item) => {
             return <TodoItem key={item.id} {...item} />;

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styles from "./TodoItem.module.css";
 import { FaCheck, FaTimes, FaEdit, FaTrashAlt } from "react-icons/fa";
 import Card from "../Layout/Card";
@@ -8,8 +8,10 @@ import moment from "moment/moment";
 const TodoItem = ({ completed, text, date, id }) => {
   const { completeTodo, removeTodo, editTodo } = useGlobalContext();
   const [isEditing, setIsEditing] = useState(false);
-  const textRef = useRef(null);
-  const dateRef = useRef(null);
+  const [editedText, setEditedText] = useState(text);
+  const [editedDate, setEditedDate] = useState(date);
+
+  console.log(date.slice(0, 10));
 
   const todoDate = moment(date);
   const now = moment();
@@ -33,10 +35,10 @@ const TodoItem = ({ completed, text, date, id }) => {
     if (!isEditing) {
       setIsEditing(true);
     } else {
-      if (textRef.current.value && dateRef.current.value) {
+      if (editedText && editedDate) {
         const editedTodo = {
-          text: textRef.current.value,
-          date: new Date(dateRef.current.value),
+          text: editedText,
+          date: new Date(editedDate).toDateString(),
         };
         editTodo(id, editedTodo);
         setIsEditing(false);
@@ -54,13 +56,25 @@ const TodoItem = ({ completed, text, date, id }) => {
       <div className={styles["info-container"]}>
         {isEditing ? (
           <>
-            <input type="text" value={text} required ref={textRef} />
-            <input type="date" ref={dateRef} required />
+            <input
+              type="text"
+              required
+              className={styles.input}
+              value={editedText}
+              onChange={(e) => setEditedText(e.target.value)}
+            />
+            <input
+              type="date"
+              required
+              className={styles.input}
+              value={editedDate.slice(0, 10)}
+              onChange={(e) => setEditedDate(e.target.value)}
+            />
           </>
         ) : (
           <>
             <p className={styles.title}>{text}</p>
-            <p className={styles.date}>{moment(date).format("L")}</p>
+            <p className={styles.date}>{moment(date).format("DD MMM YYYY")}</p>
             {content}
           </>
         )}

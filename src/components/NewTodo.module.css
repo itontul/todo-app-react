@@ -1,14 +1,15 @@
 .form-container {
-    width: min(50vw, 500px);
+    width: min(50vw, 400px);
+    min-width: 200px;
     padding: 1rem 2rem;
     margin: 0;
 }
 
-.form {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
+.todo-container {
+    display: flex;
     align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -23,16 +24,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .input {
-    display: inline;
     padding: 0.4rem;
+    width: 70%;
 }
 
 input[type="date"] {
     text-align: right;
+    width: auto;
+    margin-left: 0.5rem;
 }
 
 .button {
     margin: 0 auto;
     grid-column-start: 1;
     grid-column-end: 3;
+}
+
+.checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.info-container{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
 }

@@ -8,6 +8,11 @@
     gap: 1rem;
 }
 
+.list-container h2 {
+    text-align: center;
+    color: blueviolet;
+    text-transform: capitalize;
+}
 .button-container {
     width: 100%;
     margin: 1rem auto;

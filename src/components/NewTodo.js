@@ -1,82 +1,83 @@
-import React, { useState } from "react";
-import styles from "./NewTodo.module.css";
-import uniqid from "uniqid";
-import Card from "../Layout/Card";
-import { useGlobalContext } from "../utils/context";
+import React, { useState } from 'react'
+import styles from './NewTodo.module.css'
+import uniqid from 'uniqid'
+import Card from '../Layout/Card'
+import { useGlobalContext } from '../utils/context'
 
 const NewTodo = () => {
-  const { addTodo } = useGlobalContext();
+  const { addTodo } = useGlobalContext()
 
-  const [addedTodo, setAddedTodo] = useState("");
-  const [addedDate, setAddedDate] = useState("");
-  const [importance, setImportance] = useState(false);
+  const [addedTodo, setAddedTodo] = useState('')
+  const [addedDate, setAddedDate] = useState('')
+  const [importance, setImportance] = useState(false)
 
   const formHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (addedTodo.trim().length > 0 && addedDate) {
       const newTodo = {
         id: uniqid(),
         text: addedTodo,
-        date: new Date(addedDate),
+        date: addedDate,
         completed: false,
         importance: importance,
-      };
-      addTodo({ type: "ADD", payload: newTodo });
-      setAddedTodo("");
-      setAddedDate("");
-    } else return;
-  };
+      }
+      console.log(newTodo)
+      addTodo({ type: 'ADD', payload: newTodo })
+      setAddedTodo('')
+      setAddedDate('')
+    } else return
+  }
 
   return (
-    <Card className={styles["form-container"]}>
+    <Card className={styles['form-container']}>
       <form className={styles.form} onSubmit={formHandler}>
-        <div className={styles["todo-container"]}>
-          <label className={styles.label} htmlFor="todo">
+        <div className={styles['todo-container']}>
+          <label className={styles.label} htmlFor='todo'>
             New Todo
           </label>
           <input
             className={styles.input}
-            type="text"
-            id="todo"
+            type='text'
+            id='todo'
             required
             autoFocus
             onChange={(e) => {
-              setAddedTodo(e.target.value);
+              setAddedTodo(e.target.value)
             }}
             value={addedTodo}
           />
         </div>
-        <div className={styles["info-container"]}>
-          <label className={styles.label} htmlFor="deadline">
+        <div className={styles['info-container']}>
+          <label className={styles.label} htmlFor='deadline'>
             Deadline
           </label>
           <input
-            className={`${styles["date-input"]} ${styles.input}`}
-            type="date"
-            id="deadline"
+            className={`${styles['date-input']} ${styles.input}`}
+            type='date'
+            id='deadline'
             required
             onChange={(e) => {
-              setAddedDate(e.target.value);
+              setAddedDate(e.target.value)
             }}
             value={addedDate}
           />
 
-          <label className={styles.label} for="importance">
+          <label className={styles.label} htmlFor='importance'>
             Important
           </label>
           <input
-            type="checkbox"
-            value="yes"
+            type='checkbox'
+            value='yes'
             className={styles.checkbox}
             onChange={() => setImportance((prev) => !prev)}
           />
         </div>
-        <button className={styles.button} type="submit">
+        <button className={styles.button} type='submit'>
           Add
         </button>
       </form>
     </Card>
-  );
-};
+  )
+}
 
-export default NewTodo;
+export default NewTodo

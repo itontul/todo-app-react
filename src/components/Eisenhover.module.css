@@ -1,0 +1,50 @@
+.eisenhover {
+  padding: 1rem;
+}
+
+.eisenhover h2 {
+  text-align: center;
+  color: blueviolet;
+}
+
+.eisenhover > p {
+  text-align: center;
+}
+
+.matrix {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 500px) {
+  .matrix {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.matrix h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.matrix > div {
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.do {
+  background-color: #69fa5f;
+}
+
+.decide {
+  background-color: aqua;
+}
+
+.delegate {
+  background-color: #ff7e7e;
+}
+
+.delete {
+  background-color: #999;
+}

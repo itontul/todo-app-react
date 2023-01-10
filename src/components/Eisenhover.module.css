@@ -1,5 +1,8 @@
 .eisenhover {
   padding: 1rem;
+  width: min(50vw, 600px);
+  min-width: 200px;
+  margin-top: 2rem;
 }
 
 .eisenhover h2 {

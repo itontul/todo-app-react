@@ -9,8 +9,8 @@ function App() {
       <div className='flex'>
         <NewTodo />
         <Stats />
-        <Eisenhover />
       </div>
+      <Eisenhover />
       <TodoList />
     </main>
   )

@@ -14,6 +14,8 @@ const Eisenhover = () => {
   const delegateItems = []
   const deleteItems = []
 
+  if (list.length === 0) return
+
   list.map((item) => {
     const todoDate = moment(item.date)
     const now = moment()

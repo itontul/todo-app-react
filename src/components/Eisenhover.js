@@ -14,7 +14,7 @@ const Eisenhover = () => {
   const delegateItems = []
   const deleteItems = []
 
-  const content = list.map((item) => {
+  list.map((item) => {
     const todoDate = moment(item.date)
     const now = moment()
     const difference = todoDate.diff(now, 'hours')

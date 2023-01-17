@@ -56,3 +56,8 @@ ul {
   flex-wrap: wrap;
   margin-top: 2rem;
 }
+
+a{
+  text-decoration: none;
+  color: inherit;
+}

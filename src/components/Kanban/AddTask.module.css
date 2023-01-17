@@ -1,0 +1,23 @@
+.task-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-el {
+    display: flex;
+    gap: 1rem
+}
+
+.task-container label {
+    font-weight: bold;
+}
+
+.task-container input {
+    padding: 0.3rem;
+}
+.task-container button {
+    margin: 0
+}

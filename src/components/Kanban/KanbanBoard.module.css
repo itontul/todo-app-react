@@ -6,3 +6,13 @@
     padding: 1rem 2rem;
     margin: 2rem auto 0;
 }
+
+.kanban h1{
+    text-align: center;
+}
+.infobar {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    border-bottom: 2px solid #ccc;
+}

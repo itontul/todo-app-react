@@ -5,14 +5,13 @@ import Card from "../Layout/Card";
 import { useGlobalContext } from "../utils/context";
 import moment from "moment/moment";
 import { Link } from "react-router-dom";
+import { TbSubtask } from "react-icons/tb";
 
 const TodoItem = ({ completed, text, date, id }) => {
   const { completeTodo, removeTodo, editTodo } = useGlobalContext();
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(text);
   const [editedDate, setEditedDate] = useState(date);
-
-  console.log(date.slice(0, 10));
 
   const todoDate = moment(date);
   const now = moment();
@@ -77,7 +76,9 @@ const TodoItem = ({ completed, text, date, id }) => {
         )}
       </div>
       <Link to={`todo/${id}`}>
-        <button>Kanban board</button>
+        <button>
+          <TbSubtask />
+        </button>
       </Link>
       <div className={styles["button-container"]}>
         {!isEditing && (

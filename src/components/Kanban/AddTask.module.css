@@ -4,6 +4,9 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .form-el {

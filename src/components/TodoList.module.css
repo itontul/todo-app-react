@@ -1,5 +1,5 @@
 .list-container {
-  margin-top: 2rem;
+  margin-block: 2rem 4rem;
 }
 .todo-list {
   display: grid;

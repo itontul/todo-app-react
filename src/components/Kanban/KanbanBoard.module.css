@@ -12,7 +12,9 @@
 }
 .infobar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem;
     margin: 1rem 0;
     border-bottom: 2px solid #ccc;
+    padding-bottom: 1rem;
 }

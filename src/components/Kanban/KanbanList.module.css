@@ -1,0 +1,17 @@
+.kanban-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+
+}
+
+.todo {
+    background-color: red;
+}
+
+.doing {
+    background-color: yellow;
+}
+
+.done {
+    background-color: green;
+}

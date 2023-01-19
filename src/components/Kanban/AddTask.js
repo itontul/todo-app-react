@@ -2,10 +2,14 @@ import React from "react";
 import styles from "./AddTask.module.css";
 import { useState } from "react";
 import uniqid from "uniqid";
+import { useGlobalContext } from "../../utils/context";
+import { useParams } from "react-router-dom";
 
 const AddTask = () => {
+  const { id } = useParams();
   const [addedTask, setAddedTask] = useState("");
   const [addedDate, setAddedDate] = useState("");
+  const { addTaskHandler } = useGlobalContext();
 
   const formHandler = (e) => {
     e.preventDefault();
@@ -14,8 +18,9 @@ const AddTask = () => {
         id: uniqid(),
         text: addedTask,
         date: addedDate,
+        status: "todo",
       };
-      console.log(newTask);
+      addTaskHandler(id, newTask);
       setAddedTask("");
       setAddedDate("");
     } else return;

@@ -27,6 +27,45 @@ function reducer(state, { type, payload }) {
       });
       return { ...state, list: editedList };
 
+    case "ADD_TASK":
+      let taskAddedList = state.list.map((item) => {
+        if (item.id === payload.id) {
+          if (!item.task) {
+            return { ...item, task: [payload.task] };
+          } else {
+            return { ...item, task: [...item.task, payload.task] };
+          }
+        }
+        return item;
+      });
+      return { ...state, list: taskAddedList };
+
+    case "HANDLE_TASK":
+      let taskEditedList = state.list.map((item) => {
+        let editedTask = item.task.map((specificTask) => {
+          if (specificTask.id === payload.id) {
+            if (specificTask.status === "todo") {
+              return { ...specificTask, status: "doing" };
+            }
+            if (specificTask.status === "doing") {
+              return { ...specificTask, status: "done" };
+            }
+          }
+          return specificTask;
+        });
+        return { ...item, task: editedTask };
+      });
+      return { ...state, list: taskEditedList };
+
+    case "DELETE_TASK":
+      let taskDeletedList = state.list.map((item) => {
+        if (item.id === payload.id) {
+          return { ...item, ...payload.task };
+        }
+        return item;
+      });
+      return { ...state, list: taskDeletedList };
+
     default:
       throw new Error(`Unknown action type: ${type}`);
   }

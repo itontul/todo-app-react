@@ -39,6 +39,13 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "EDIT", payload: { id, item } });
   };
 
+  const addTaskHandler = (id, task) => {
+    dispatch({ type: "ADD_TASK", payload: { id, task } });
+  };
+
+  const editTaskHandler = (id) => {
+    dispatch({ type: "HANDLE_TASK", payload: { id } });
+  };
   return (
     <AppContext.Provider
       value={{
@@ -47,6 +54,8 @@ const AppProvider = ({ children }) => {
         completeTodo,
         removeTodo,
         editTodo,
+        addTaskHandler,
+        editTaskHandler,
       }}
     >
       {children}

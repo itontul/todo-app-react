@@ -1,9 +1,9 @@
 .task-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     border-bottom: 2px solid #ccc;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
@@ -11,7 +11,8 @@
 
 .form-el {
     display: flex;
-    gap: 1rem
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .task-container label {

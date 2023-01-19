@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../../utils/context";
 import AddTask from "./AddTask";
 import styles from "./KanbanBoard.module.css";
+import KanbanList from "./KanbanList";
 
 const KanbanBoard = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const KanbanBoard = () => {
   const { text, date, completed, importance } = list.filter(
     (i) => i.id === id
   )[0];
-  console.log(text);
+  console.log(list[0].task);
   return (
     <div className={styles.kanban}>
       <h1>{text}</h1>
@@ -21,6 +22,7 @@ const KanbanBoard = () => {
         <p>{importance ? "Important" : "Not Important"}</p>
       </div>
       <AddTask />
+      <KanbanList />
     </div>
   );
 };

@@ -33,9 +33,6 @@ const NewTodo = () => {
     <Card className={styles['form-container']}>
       <form className={styles.form} onSubmit={formHandler}>
         <div className={styles['todo-container']}>
-          <label className={styles.label} htmlFor='todo'>
-            New Todo
-          </label>
           <input
             className={styles.input}
             type='text'

@@ -25,6 +25,9 @@ const KanbanList = () => {
         {statusTodo.map((item) => {
           return <TaskItem key={item.id} {...item} todoId />
         })}
+        {statusTodo.length === 0 && (
+          <p className={styles.infotext}>Please add a task</p>
+        )}
       </div>
 
       <div className={`${styles.doing} ${styles.item}`}>
@@ -32,6 +35,9 @@ const KanbanList = () => {
         {statusDoing.map((item) => {
           return <TaskItem key={item.id} {...item} todoId />
         })}
+        {statusDoing.length === 0 && (
+          <p className={styles.infotext}>Let's start a task</p>
+        )}
       </div>
 
       <div className={`${styles.done} ${styles.item}`}>
@@ -39,6 +45,9 @@ const KanbanList = () => {
         {statusDone.map((item) => {
           return <TaskItem key={item.id} {...item} />
         })}
+        {statusDone.length === 0 && (
+          <p className={styles.infotext}>Let's finish some task</p>
+        )}
       </div>
     </div>
   )

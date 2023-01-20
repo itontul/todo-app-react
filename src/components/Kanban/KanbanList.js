@@ -1,38 +1,50 @@
 import React from "react";
 import { useGlobalContext } from "../../utils/context";
-import TodoItems from "./TodoItems";
-import Doing from "./Doing";
-import Done from "./Done";
+import TaskItems from "./TaskItems";
+
 import styles from "./KanbanList.module.css";
 
 const KanbanList = () => {
   const { list } = useGlobalContext();
-  console.log(list);
+  const statusTodo = list[0].task.filter((i) => i.status === "todo") || [];
+  const statusDoing = list[0].task.filter((i) => i.status === "doing");
+  const statusDone = list[0].task.filter((i) => i.status === "done") || [];
+
+  console.log(statusDoing);
   return (
     <div className={styles["kanban-grid"]}>
-      {list[0].task.map((item) => {
-        if (item.status === "todo") {
+      <div className={`${styles.todo} ${styles.item}`}>
+        <h2 className={styles["item-header"]}>I will do...</h2>
+        {statusTodo.map((item) => {
           return (
-            <div className={styles.todo}>
-              <TodoItems key={item.id} {...item} todoId />
-            </div>
+            <>
+              <TaskItems key={item.id} {...item} todoId />
+            </>
           );
-        }
-        if (item.status === "doing") {
+        })}
+      </div>
+
+      <div className={`${styles.doing} ${styles.item}`}>
+        <h2 className={styles["item-header"]}>I am doing...</h2>
+        {statusDoing.map((item) => {
           return (
-            <div className={styles.doing}>
-              <Doing key={item.id} {...item} id todoId />
-            </div>
+            <>
+              <TaskItems key={item.id} {...item} todoId />
+            </>
           );
-        }
-        if (item.status === "done") {
+        })}
+      </div>
+
+      <div className={`${styles.done} ${styles.item}`}>
+        <h2 className={styles["item-header"]}>Yayyy, it's done!</h2>
+        {statusDone.map((item) => {
           return (
-            <div className={styles.done}>
-              return <Done key={item.id} {...item} />
-            </div>
+            <>
+              <TaskItems key={item.id} {...item} />
+            </>
           );
-        }
-      })}
+        })}
+      </div>
     </div>
   );
 };

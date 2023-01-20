@@ -59,10 +59,13 @@ function reducer(state, { type, payload }) {
 
     case "DELETE_TASK":
       let taskDeletedList = state.list.map((item) => {
-        if (item.id === payload.id) {
-          return { ...item, ...payload.task };
-        }
-        return item;
+        let deletedTask = item.task.map((taskDeleted) => {
+          if (taskDeleted.id === payload) {
+            return { task: taskDeleted.filter((item) => item.id !== payload) };
+          }
+          return taskDeleted;
+        });
+        return { ...item, task: deletedTask };
       });
       return { ...state, list: taskDeletedList };
 

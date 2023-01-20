@@ -1,0 +1,16 @@
+.body {
+  margin: 0;
+  background-color: #fff;
+  width: min(80vw, 1170px);
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  justify-items: stretch;
+}

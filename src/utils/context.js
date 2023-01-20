@@ -1,55 +1,55 @@
-import React, { useReducer, useContext, useEffect } from "react";
-import reducer from "./reducer";
+import React, { useReducer, useContext, useEffect } from 'react'
+import reducer from './reducer'
 
-const AppContext = React.createContext();
+const AppContext = React.createContext()
 
 const getItemsFromLS = () => {
-  let list = localStorage.getItem("list");
+  let list = localStorage.getItem('list')
   if (list) {
-    return (list = JSON.parse(localStorage.getItem("list")));
+    return (list = JSON.parse(localStorage.getItem('list')))
   } else {
-    return [];
+    return []
   }
-};
+}
 
 const initialState = {
   list: getItemsFromLS(),
-};
+}
 
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(state.list));
-  }, [state.list]);
+    localStorage.setItem('list', JSON.stringify(state.list))
+  }, [state.list])
 
   const addTodo = (item) => {
-    dispatch({ type: "ADD", ...item });
-  };
+    dispatch({ type: 'ADD', ...item })
+  }
 
   const completeTodo = (id) => {
-    dispatch({ type: "COMPLETE", payload: id });
-  };
+    dispatch({ type: 'COMPLETE', payload: id })
+  }
 
   const removeTodo = (id) => {
-    dispatch({ type: "REMOVE", payload: id });
-  };
+    dispatch({ type: 'REMOVE', payload: id })
+  }
 
   const editTodo = (id, item) => {
-    dispatch({ type: "EDIT", payload: { id, item } });
-  };
+    dispatch({ type: 'EDIT', payload: { id, item } })
+  }
 
   const addTaskHandler = (id, task) => {
-    dispatch({ type: "ADD_TASK", payload: { id, task } });
-  };
+    dispatch({ type: 'ADD_TASK', payload: { id, task } })
+  }
 
   const editTaskHandler = (id) => {
-    dispatch({ type: "HANDLE_TASK", payload: { id } });
-  };
+    dispatch({ type: 'HANDLE_TASK', payload: id })
+  }
 
   const deleteTaskHandler = (id) => {
-    dispatch({ type: "DELETE_TASK", payload: { id } });
-  };
+    dispatch({ type: 'DELETE_TASK', payload: id })
+  }
   return (
     <AppContext.Provider
       value={{
@@ -65,11 +65,11 @@ const AppProvider = ({ children }) => {
     >
       {children}
     </AppContext.Provider>
-  );
-};
+  )
+}
 // make sure use
 export const useGlobalContext = () => {
-  return useContext(AppContext);
-};
+  return useContext(AppContext)
+}
 
-export { AppContext, AppProvider };
+export { AppContext, AppProvider }

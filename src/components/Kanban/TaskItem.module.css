@@ -1,21 +1,34 @@
 .task {
-    background-color: white;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.task h4 {
+  margin-bottom: 0.5rem;
+}
+
+.task p {
+  font-size: 0.85rem;
 }
 
 .btns {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .btn {
-    margin:  1rem 0 0;
-    padding: 0;
-    background-color: transparent;
-    box-shadow: none;
-    font-size: 1.25rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 1.25rem;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: blueviolet;
 }

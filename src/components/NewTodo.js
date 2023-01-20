@@ -20,6 +20,7 @@ const NewTodo = () => {
         date: addedDate,
         completed: false,
         importance: importance,
+        task: [],
       }
       console.log(newTodo)
       addTodo({ type: 'ADD', payload: newTodo })
@@ -39,6 +40,7 @@ const NewTodo = () => {
             className={styles.input}
             type='text'
             id='todo'
+            placeholder='New Todo'
             required
             autoFocus
             onChange={(e) => {
@@ -55,22 +57,24 @@ const NewTodo = () => {
             className={`${styles['date-input']} ${styles.input}`}
             type='date'
             id='deadline'
+            placeholder='Deadline'
             required
             onChange={(e) => {
               setAddedDate(e.target.value)
             }}
             value={addedDate}
           />
-
-          <label className={styles.label} htmlFor='importance'>
-            Important
-          </label>
-          <input
-            type='checkbox'
-            value='yes'
-            className={styles.checkbox}
-            onChange={() => setImportance((prev) => !prev)}
-          />
+          <div className={styles.importance}>
+            <label className={styles.label} htmlFor='importance'>
+              Important
+            </label>
+            <input
+              type='checkbox'
+              value='yes'
+              className={styles.checkbox}
+              onChange={() => setImportance((prev) => !prev)}
+            />
+          </div>
         </div>
         <button className={styles.button} type='submit'>
           Add

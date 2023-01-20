@@ -12,7 +12,6 @@ body {
   background-color: rgb(58, 58, 58);
 }
 
-
 button {
   all: unset;
   padding: 0.3rem 1rem;
@@ -30,17 +29,10 @@ button:hover {
   color: white;
 }
 
-main {
-  width: min(80vw, 1170px);
-  min-height: 100vh;
-  margin-inline: auto;
-}
-
 .card {
   background-color: #eedefd;
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  margin-inline: auto;
 }
 
 ul {
@@ -49,15 +41,7 @@ ul {
   padding: 0;
 }
 
-.flex {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-a{
+a {
   text-decoration: none;
   color: inherit;
 }

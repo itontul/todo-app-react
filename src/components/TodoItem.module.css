@@ -1,5 +1,6 @@
 .todo-item {
-  width: 200px;
+  width: 80%;
+  max-width: 200px;
   min-height: 200px;
   background-color: white;
   padding: 1rem;
